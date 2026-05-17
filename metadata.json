@@ -1,0 +1,8 @@
+{
+  "name": "Luxury Watch Straps",
+  "description": "Premium Swiss-made watch straps hero section.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
