@@ -55,10 +55,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           currency,
           unit_amount: Math.round(product.price * 100),
           product_data: {
-            name: product.name,
-            description: product.shortDesc,
+            name: `${product.name} — Précommande`,
+            description: `${product.shortDesc} Livraison prévue le 10 juin 2026.`,
             images: imageUrl ? [imageUrl] : undefined,
-            metadata: { product_id: product.id },
+            metadata: { product_id: product.id, preorder: 'true' },
           },
         },
       };
@@ -110,6 +110,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ],
       success_url: `${base}/?status=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${base}/?status=cancel`,
+      metadata: { type: 'preorder', shipping_date: '2026-06-10' },
+      payment_intent_data: {
+        description: 'Précommande Swap Geneva — Livraison le 10 juin 2026',
+        metadata: { shipping_date: '2026-06-10' },
+      },
     });
 
     return res.status(200).json({ url: session.url });

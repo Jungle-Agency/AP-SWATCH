@@ -162,6 +162,10 @@ export function Home({ onSelectProduct }: { onSelectProduct: (id: string) => voi
                <h2 className="text-4xl md:text-6xl font-serif font-light mb-4 text-white">
                  Séries <span className="italic text-neutral-400">Limitées</span>
                </h2>
+               <div className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 border border-amber-400/40 bg-amber-400/10 rounded-full">
+                 <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+                 <span className="text-[10px] uppercase tracking-[0.25em] text-amber-200">Précommande — Livraison le 10 juin 2026</span>
+               </div>
              </motion.div>
              
              <motion.p 

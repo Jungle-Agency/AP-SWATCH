@@ -67,10 +67,17 @@ export function Checkout({ onBack }: { onBack: () => void }) {
           transition={{ duration: 0.8 }}
           className="lg:col-span-7"
         >
-          <h1 className="text-3xl font-serif font-light mb-6">Finaliser la commande</h1>
+          <h1 className="text-3xl font-serif font-light mb-6">Finaliser la précommande</h1>
+
+          <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-amber-400/40 bg-amber-400/10 rounded-full">
+            <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-amber-200">Précommande — Livraison le 10 juin 2026</span>
+          </div>
+
           <p className="text-sm text-neutral-400 leading-relaxed mb-10 max-w-md">
             Vous serez redirigé vers notre page de paiement sécurisée Stripe pour saisir vos
-            coordonnées de livraison et régler votre commande.
+            coordonnées de livraison et régler votre précommande. Votre bracelet sera expédié le
+            10 juin 2026, date de lancement officielle.
           </p>
 
           <ul className="space-y-3 text-sm text-neutral-400 mb-10 max-w-md">

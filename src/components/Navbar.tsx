@@ -103,7 +103,7 @@ export function Navbar({ onNavigate, currentView }: { onNavigate: (v: 'home'|'ch
             </button>
             
             <a href="#collection" onClick={(e) => handleNavClick(e, '#collection')} className="hidden md:inline-flex items-center justify-center px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 text-white">
-              Acquérir
+              Précommander
             </a>
             
             <button
@@ -143,7 +143,7 @@ export function Navbar({ onNavigate, currentView }: { onNavigate: (v: 'home'|'ch
               ))}
               <div className="w-12 h-[1px] bg-white/20 my-4" />
               <a href="#collection" onClick={(e) => handleNavClick(e, '#collection')} className="px-8 py-3 w-full max-w-sm border border-white/20 rounded-full text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 text-white">
-                Acquérir
+                Précommander
               </a>
             </div>
           </motion.div>

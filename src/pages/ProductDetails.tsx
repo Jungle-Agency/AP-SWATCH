@@ -89,19 +89,23 @@ export function ProductDetails({ id, onBack }: { id: string, onBack: () => void 
             </ul>
           </div>
 
-          <button 
+          <div className="mb-4 inline-flex items-center gap-2 px-3 py-1.5 border border-amber-400/40 bg-amber-400/10 rounded-full self-start">
+            <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-amber-200">Précommande</span>
+          </div>
+
+          <button
             onClick={() => addToCart(product, 1)}
             className="w-full py-4 px-8 border border-white bg-white text-black hover:bg-transparent hover:text-white transition-all duration-300 text-[10px] uppercase tracking-[0.3em] font-bold rounded-full group flex items-center justify-center space-x-4"
           >
-            <span>Ajouter au panier</span>
+            <span>Précommander</span>
           </button>
-          
+
           <div className="mt-8 flex items-center space-x-8 text-[9px] uppercase tracking-[0.2em] text-white/40">
              <div className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                <span>En Stock</span>
+                <span className="w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
+                <span>Livraison prévue le 10 juin 2026</span>
              </div>
-             <span>Livraison 48H</span>
           </div>
         </motion.div>
       </div>
