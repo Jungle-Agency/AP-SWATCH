@@ -65,8 +65,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         {
           shipping_rate_data: {
             type: 'fixed_amount',
-            display_name: 'Suisse — La Poste 48h',
-            fixed_amount: { amount: 900, currency: 'eur' },
+            display_name: 'Suisse — La Poste 48h — Offerte',
+            fixed_amount: { amount: 0, currency: 'eur' },
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 1 },
               maximum: { unit: 'business_day', value: 3 },
