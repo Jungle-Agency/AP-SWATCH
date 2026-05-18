@@ -1,4 +1,5 @@
 import { Menu, X, ShoppingBag } from "lucide-react";
+import type React from "react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useCart } from "../context/CartContext";

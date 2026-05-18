@@ -3,6 +3,7 @@ import { CartProvider } from "./context/CartContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { CartDrawer } from "./components/CartDrawer";
+import { CheckoutBanner } from "./components/CheckoutBanner";
 import { Home } from "./pages/Home";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Checkout } from "./pages/Checkout";
@@ -28,12 +29,13 @@ export default function App() {
           }} 
           currentView={currentView}
         />
-        <CartDrawer 
+        <CartDrawer
           onCheckout={() => {
             setCurrentView('checkout');
             setSelectedProductId(null);
           }}
         />
+        <CheckoutBanner />
         
         <main className="flex-1 relative z-10 w-full">
           {currentView === 'home' && !selectedProductId && (
