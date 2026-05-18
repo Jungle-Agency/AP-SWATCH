@@ -1,12 +1,14 @@
 import { motion } from "motion/react";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { useCurrency } from "../context/CurrencyContext";
 import { ChevronLeft, Check } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function ProductDetails({ id, onBack }: { id: string, onBack: () => void }) {
   const product = products.find(p => p.id === id);
   const { addToCart } = useCart();
+  const { formatPrice } = useCurrency();
   const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
@@ -60,9 +62,9 @@ export function ProductDetails({ id, onBack }: { id: string, onBack: () => void 
             {product.name}
           </h1>
           <div className="flex items-baseline gap-3 mb-3">
-            <p className="text-xl font-light text-white">€{product.price}</p>
+            <p className="text-xl font-light text-white">{formatPrice(product.price)}</p>
             {product.originalPrice && (
-              <p className="text-base font-light text-white/40 line-through">€{product.originalPrice}</p>
+              <p className="text-base font-light text-white/40 line-through">{formatPrice(product.originalPrice)}</p>
             )}
           </div>
           {product.originalPrice && (

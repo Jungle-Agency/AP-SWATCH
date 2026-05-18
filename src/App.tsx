@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CartProvider } from "./context/CartContext";
+import { CurrencyProvider } from "./context/CurrencyContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { CartDrawer } from "./components/CartDrawer";
@@ -13,6 +14,7 @@ export default function App() {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
   return (
+    <CurrencyProvider>
     <CartProvider>
       <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-neutral-700 selection:text-white relative overflow-x-hidden flex flex-col">
         {!selectedProductId && currentView === 'home' && (
@@ -77,5 +79,6 @@ export default function App() {
         `}</style>
       </div>
     </CartProvider>
+    </CurrencyProvider>
   );
 }

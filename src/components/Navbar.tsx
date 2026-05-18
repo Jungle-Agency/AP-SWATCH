@@ -3,11 +3,13 @@ import type React from "react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useCart } from "../context/CartContext";
+import { useCurrency } from "../context/CurrencyContext";
 
 export function Navbar({ onNavigate, currentView }: { onNavigate: (v: 'home'|'checkout') => void, currentView: string }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { itemCount, setIsCartOpen } = useCart();
+  const { currency, setCurrency } = useCurrency();
   
   const isHome = currentView === 'home';
 
@@ -70,8 +72,25 @@ export function Navbar({ onNavigate, currentView }: { onNavigate: (v: 'home'|'ch
             ))}
           </div>
 
-          <div className="flex items-center space-x-6">
-            <button 
+          <div className="flex items-center space-x-4 md:space-x-6">
+            <div className="hidden sm:flex items-center text-[10px] uppercase tracking-[0.2em] border border-white/15 rounded-full overflow-hidden">
+              {(["EUR", "CHF"] as const).map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setCurrency(c)}
+                  className={`px-3 py-1.5 transition-colors ${
+                    currency === c
+                      ? "bg-white text-black"
+                      : "text-white/60 hover:text-white"
+                  }`}
+                  aria-pressed={currency === c}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+
+            <button
               onClick={() => setIsCartOpen(true)}
               className="relative text-white/80 hover:text-white transition-colors flex items-center"
             >

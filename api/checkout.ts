@@ -9,6 +9,9 @@ interface IncomingItem {
   quantity: number;
 }
 
+type SupportedCurrency = 'eur' | 'chf';
+const ALLOWED_CURRENCIES: SupportedCurrency[] = ['eur', 'chf'];
+
 const SHIPPING_ALLOWED_COUNTRIES: Stripe.Checkout.SessionCreateParams.ShippingAddressCollection.AllowedCountry[] = [
   'CH', 'FR', 'BE', 'LU', 'DE', 'IT', 'ES', 'PT', 'NL', 'AT', 'GB',
   'DK', 'SE', 'NO', 'FI', 'IE', 'PL', 'CZ', 'GR', 'US', 'CA',
@@ -21,11 +24,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { items, origin } = req.body as { items: IncomingItem[]; origin?: string };
+    const { items, origin, currency: rawCurrency } = req.body as {
+      items: IncomingItem[];
+      origin?: string;
+      currency?: string;
+    };
 
     if (!Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'Panier vide.' });
     }
+
+    const currency: SupportedCurrency = ALLOWED_CURRENCIES.includes(
+      (rawCurrency || '').toLowerCase() as SupportedCurrency,
+    )
+      ? ((rawCurrency || '').toLowerCase() as SupportedCurrency)
+      : 'eur';
 
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = items.map((cartItem) => {
       const product = products.find((p) => p.id === cartItem.id);
@@ -39,7 +52,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return {
         quantity: qty,
         price_data: {
-          currency: 'eur',
+          currency,
           unit_amount: Math.round(product.price * 100),
           product_data: {
             name: product.name,
@@ -66,7 +79,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           shipping_rate_data: {
             type: 'fixed_amount',
             display_name: 'Suisse — La Poste 48h — Offerte',
-            fixed_amount: { amount: 0, currency: 'eur' },
+            fixed_amount: { amount: 0, currency },
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 1 },
               maximum: { unit: 'business_day', value: 3 },
@@ -77,7 +90,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           shipping_rate_data: {
             type: 'fixed_amount',
             display_name: 'Union européenne — Offerte',
-            fixed_amount: { amount: 0, currency: 'eur' },
+            fixed_amount: { amount: 0, currency },
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 3 },
               maximum: { unit: 'business_day', value: 7 },
@@ -88,7 +101,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           shipping_rate_data: {
             type: 'fixed_amount',
             display_name: 'International',
-            fixed_amount: { amount: 2500, currency: 'eur' },
+            fixed_amount: { amount: 2500, currency },
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 5 },
               maximum: { unit: 'business_day', value: 14 },

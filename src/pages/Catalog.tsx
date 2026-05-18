@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { products } from "../data/products";
+import { useCurrency } from "../context/CurrencyContext";
 import { ArrowUpRight } from "lucide-react";
 
 export function Catalog() {
+  const { formatPrice } = useCurrency();
   return (
     <div className="pt-32 pb-20 min-h-screen relative z-10 px-6 md:px-12 max-w-7xl mx-auto">
       <motion.div
@@ -44,9 +46,9 @@ export function Catalog() {
                   <h3 className="text-xl font-medium text-white mb-2">{strap.name}</h3>
                   <p className="text-sm text-neutral-500 mb-4">{strap.shortDesc}</p>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-base font-light text-white">€{strap.price}</p>
+                    <p className="text-base font-light text-white">{formatPrice(strap.price)}</p>
                     {strap.originalPrice && (
-                      <p className="text-sm font-light text-white/40 line-through">€{strap.originalPrice}</p>
+                      <p className="text-sm font-light text-white/40 line-through">{formatPrice(strap.originalPrice)}</p>
                     )}
                   </div>
                 </div>

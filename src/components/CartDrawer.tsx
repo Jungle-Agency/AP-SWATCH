@@ -1,9 +1,11 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, Minus, Plus, ShoppingBag } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import { useCurrency } from "../context/CurrencyContext";
 
 export function CartDrawer({ onCheckout }: { onCheckout: () => void }) {
   const { items, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, totalPrice } = useCart();
+  const { formatPrice } = useCurrency();
 
   return (
     <AnimatePresence>
@@ -94,7 +96,7 @@ export function CartDrawer({ onCheckout }: { onCheckout: () => void }) {
                               <Plus className="w-3 h-3" />
                             </button>
                           </div>
-                          <p className="text-sm font-light text-white">€{item.product.price}</p>
+                          <p className="text-sm font-light text-white">{formatPrice(item.product.price)}</p>
                         </div>
                       </div>
                     </div>
@@ -107,7 +109,7 @@ export function CartDrawer({ onCheckout }: { onCheckout: () => void }) {
               <div className="border-t border-white/10 p-6 bg-[#050505]">
                 <div className="flex justify-between items-center mb-6">
                   <span className="text-xs text-white/60 uppercase tracking-[0.1em]">Total</span>
-                  <span className="text-lg font-light text-white">€{totalPrice}</span>
+                  <span className="text-lg font-light text-white">{formatPrice(totalPrice)}</span>
                 </div>
                 <button 
                   onClick={() => {

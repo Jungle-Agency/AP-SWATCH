@@ -1,10 +1,12 @@
 import { motion } from "motion/react";
 import { useCart } from "../context/CartContext";
+import { useCurrency } from "../context/CurrencyContext";
 import { ChevronLeft, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function Checkout({ onBack }: { onBack: () => void }) {
   const { items, totalPrice } = useCart();
+  const { currency, formatPrice } = useCurrency();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,6 +24,7 @@ export function Checkout({ onBack }: { onBack: () => void }) {
         body: JSON.stringify({
           items: items.map((i) => ({ id: i.product.id, quantity: i.quantity })),
           origin: window.location.origin,
+          currency,
         }),
       });
 
@@ -96,7 +99,7 @@ export function Checkout({ onBack }: { onBack: () => void }) {
                 Redirection…
               </>
             ) : (
-              <>Procéder au paiement — €{totalPrice}</>
+              <>Procéder au paiement — {formatPrice(totalPrice)}</>
             )}
           </button>
 
@@ -128,7 +131,7 @@ export function Checkout({ onBack }: { onBack: () => void }) {
                       <p className="text-white/40 text-xs mt-1">Qté: {item.quantity}</p>
                     </div>
                   </div>
-                  <p className="text-white/80">€{item.product.price * item.quantity}</p>
+                  <p className="text-white/80">{formatPrice(item.product.price * item.quantity)}</p>
                 </div>
               ))}
             </div>
@@ -136,7 +139,7 @@ export function Checkout({ onBack }: { onBack: () => void }) {
             <div className="border-t border-white/10 pt-6 space-y-4 text-sm">
               <div className="flex justify-between text-white/60">
                 <span>Sous-total</span>
-                <span>€{totalPrice}</span>
+                <span>{formatPrice(totalPrice)}</span>
               </div>
               <div className="flex justify-between text-white/60">
                 <span>Livraison</span>
@@ -144,7 +147,7 @@ export function Checkout({ onBack }: { onBack: () => void }) {
               </div>
               <div className="flex justify-between items-center text-lg text-white font-light mt-4 pt-4 border-t border-white/10">
                 <span>Total avant livraison</span>
-                <span>€{totalPrice}</span>
+                <span>{formatPrice(totalPrice)}</span>
               </div>
             </div>
 
