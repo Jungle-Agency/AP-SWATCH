@@ -43,7 +43,12 @@ export function Catalog() {
                 <div>
                   <h3 className="text-xl font-medium text-white mb-2">{strap.name}</h3>
                   <p className="text-sm text-neutral-500 mb-4">{strap.shortDesc}</p>
-                  <p className="text-base font-light text-white">€{strap.price}</p>
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-base font-light text-white">€{strap.price}</p>
+                    {strap.originalPrice && (
+                      <p className="text-sm font-light text-white/40 line-through">€{strap.originalPrice}</p>
+                    )}
+                  </div>
                 </div>
                 <button className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all text-white">
                   <ArrowUpRight className="w-4 h-4" />

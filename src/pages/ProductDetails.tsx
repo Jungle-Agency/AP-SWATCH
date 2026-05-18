@@ -59,7 +59,15 @@ export function ProductDetails({ id, onBack }: { id: string, onBack: () => void 
           <h1 className="text-4xl md:text-5xl font-serif font-light mb-6">
             {product.name}
           </h1>
-          <p className="text-xl font-light text-white mb-10">€{product.price}</p>
+          <div className="flex items-baseline gap-3 mb-3">
+            <p className="text-xl font-light text-white">€{product.price}</p>
+            {product.originalPrice && (
+              <p className="text-base font-light text-white/40 line-through">€{product.originalPrice}</p>
+            )}
+          </div>
+          {product.originalPrice && (
+            <p className="text-[10px] uppercase tracking-[0.3em] text-red-500 mb-10">Prix de lancement</p>
+          )}
           
           <div className="h-[1px] w-full bg-white/10 mb-8"></div>
 
