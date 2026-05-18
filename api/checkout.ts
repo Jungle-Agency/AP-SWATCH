@@ -77,34 +77,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         {
           shipping_rate_data: {
             type: 'fixed_amount',
-            display_name: 'Suisse — La Poste 48h — Offerte',
+            display_name: 'Précommande — Suisse — Expédition le 10 juin 2026 (Offerte)',
             fixed_amount: { amount: 0, currency },
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 1 },
-              maximum: { unit: 'business_day', value: 3 },
-            },
           },
         },
         {
           shipping_rate_data: {
             type: 'fixed_amount',
-            display_name: 'Union européenne — Offerte',
+            display_name: 'Précommande — Union européenne — Expédition le 10 juin 2026 (Offerte)',
             fixed_amount: { amount: 0, currency },
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 3 },
-              maximum: { unit: 'business_day', value: 7 },
-            },
           },
         },
         {
           shipping_rate_data: {
             type: 'fixed_amount',
-            display_name: 'International',
+            display_name: 'Précommande — International — Expédition le 10 juin 2026',
             fixed_amount: { amount: 2500, currency },
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 5 },
-              maximum: { unit: 'business_day', value: 14 },
-            },
           },
         },
       ],
