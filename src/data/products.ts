@@ -32,7 +32,7 @@ export const products: Product[] = [
     id: "strap-bleu-abyssal",
     name: "Bleu Abyssal",
     shortDesc: "Une profondeur océanique, idéale pour le sport.",
-    description: "Le Bleu Abyssal évoque la profondeur des océans. Doté de notre formulation unique de polymère fluoré, ce modèle résiste aux environnements aquatiques tout en préservant son esthétique haut de gamme. Chaque pièce est soigneusement sculptée.",
+    description: "Le Bleu Abyssal évoque la profondeur des océans. Doté de notre formulation unique de polymère fluoré, ce modèle résiste aux environnements aquatiques tout en préservant son esthétique haut de gamme. Boucle blanche pour un contraste élégant.",
     price: 90,
     image: "/straps/bleu-profil.png",
     images: [
@@ -41,9 +41,27 @@ export const products: Product[] = [
     ],
     features: [
       "Revêtement hydrophobe exclusif",
-      "Design ergonomique aéré pour un port quotidien",
+      "Boucle céramique blanche",
       "Tolérance de fabrication à +/- 0.005 mm",
-      "Sur-piqûres ton-sur-ton (optionnelles)"
+      "Édition limitée numérotée"
+    ]
+  },
+  {
+    id: "strap-bleu-tangerine",
+    name: "Bleu Tangerine",
+    shortDesc: "Marine profond rehaussé d'accents orangés.",
+    description: "Le Bleu Tangerine combine la sobriété d'un marine profond et l'audace d'inserts orange vif. Inspiré des chronographes de plongée vintage, ce bracelet apporte une touche sportive et lumineuse à votre Royal Oak Concept.",
+    price: 90,
+    image: "/straps/bleu-tangerine-profil.png",
+    images: [
+      "/straps/bleu-tangerine-profil.png",
+      "/straps/bleu-tangerine-face.png",
+    ],
+    features: [
+      "Inserts orange ton-sur-ton",
+      "Polymère FKM marine teinté masse",
+      "Boucle anodisée orange brossée",
+      "Édition Capsule été 2026"
     ]
   },
   {
@@ -65,13 +83,50 @@ export const products: Product[] = [
     ]
   },
   {
+    id: "strap-rose-dore",
+    name: "Rose Doré",
+    shortDesc: "Rose pastel et boucle dorée — pure orfèvrerie.",
+    description: "Le Rose Doré fait dialoguer un rose poudré minéral avec des passants et une boucle finis or jaune. L'alliance précieuse d'une céramique tendre et d'une touche d'orfèvrerie pour les amateurs de raffinement absolu.",
+    price: 90,
+    image: "/straps/rose-dore-profil.png",
+    images: [
+      "/straps/rose-dore-profil.png",
+      "/straps/rose-dore-face.png",
+    ],
+    features: [
+      "Passants et boucle plaqués or 18k",
+      "Polymère FKM rose pastel",
+      "Garniture anti-jaunissement",
+      "Édition Capsule Joaillerie"
+    ]
+  },
+  {
+    id: "strap-jaune-sahara",
+    name: "Jaune Sahara",
+    shortDesc: "Une nuance solaire pour les pièces estivales.",
+    description: "Le Jaune Sahara s'inspire des sables clairs et de la lumière du désert. Sa nuance pastel se marie naturellement avec les céramiques claires et apporte une signature solaire à toute la collection.",
+    price: 90,
+    image: "/straps/jaune-profil.png",
+    images: [
+      "/straps/jaune-profil.png",
+      "/straps/jaune-face.png",
+    ],
+    features: [
+      "Pigment minéral stable à la lumière",
+      "Boucle satinée argentée",
+      "Toucher mat soyeux",
+      "Édition Capsule été 2026"
+    ]
+  },
+  {
     id: "strap-blanc-glacier",
     name: "Blanc Glacier",
     shortDesc: "L'élégance minérale d'un blanc immaculé.",
     description: "Le Blanc Glacier impose un contraste pur et minimaliste. Sa surface mate met en valeur la lumière des céramiques claires. Traité anti-jaunissement, ce bracelet préserve sa pureté à travers les saisons.",
     price: 90,
-    image: "/straps/blanc-face.png",
+    image: "/straps/blanc-profil.png",
     images: [
+      "/straps/blanc-profil.png",
       "/straps/blanc-face.png",
     ],
     features: [

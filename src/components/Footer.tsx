@@ -6,9 +6,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
         <p>© {year} Swap Geneva — Genève, Suisse.</p>
         <div className="flex items-center space-x-6">
-          <a href="#" className="hover:text-white transition-colors">Contact</a>
-          <a href="#" className="hover:text-white transition-colors">Mentions Légales</a>
-          <a href="#" className="hover:text-white transition-colors">CGV</a>
+          <a
+            href="https://www.instagram.com/swapgeneva_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            Instagram
+          </a>
           <span className="hidden md:inline text-white/20">|</span>
           <span className="inline-flex items-center gap-1 flex-wrap">
             Fait par

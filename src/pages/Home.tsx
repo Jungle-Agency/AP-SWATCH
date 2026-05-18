@@ -15,27 +15,14 @@ export function Home({ onSelectProduct }: { onSelectProduct: (id: string) => voi
           <img
             src="/watches/royal-oak-arc-en-ciel.jpg"
             alt="AP x Swatch Royal Oak"
-            className="w-full h-full object-cover object-center transform scale-105 motion-safe:animate-[slowPan_20s_ease-in-out_infinite_alternate]"
+            className="w-full h-full object-cover scale-105"
+            style={{ objectPosition: '50% 5%' }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/95 via-[#050505]/60 to-[#050505]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1A1A1A]/40 to-[#0C0C0C]/80"></div>
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="inline-flex items-center space-x-4 mb-8">
-              <span className="h-[1px] w-8 bg-white/30"></span>
-              <span className="text-[10px] tracking-[0.4em] uppercase text-white/50">
-                The New Standard
-              </span>
-              <span className="h-[1px] w-8 bg-white/30"></span>
-            </span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,17 +63,6 @@ export function Home({ onSelectProduct }: { onSelectProduct: (id: string) => voi
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
-        >
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-4">Explorer</span>
-          <div className="w-[1px] h-16 bg-white/10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-white animate-[scrollDown_2s_ease-in-out_infinite]"></div>
-          </div>
-        </motion.div>
       </section>
 
       <section id="expertise" className="relative z-10 py-32 px-6 md:px-12 max-w-7xl mx-auto">
@@ -259,12 +235,15 @@ export function Home({ onSelectProduct }: { onSelectProduct: (id: string) => voi
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {[
+            { src: "/watches/royal-oak-noir.png", label: "Noir Obsidienne", accent: "Stealth" },
             { src: "/watches/royal-oak-bleu-orange.png", label: "Bleu Atlantique", accent: "Orange" },
             { src: "/watches/royal-oak-rose.png", label: "Rose Céramique", accent: "Rouge" },
             { src: "/watches/royal-oak-bicolore.png", label: "Bicolore Pastel", accent: "Édition" },
             { src: "/watches/royal-oak-bleu-glace.png", label: "Bleu Glacier", accent: "Concept" },
+            { src: "/watches/royal-oak-jaune.png", label: "Jaune Sahara", accent: "Capsule" },
+            { src: "/watches/royal-oak-arc-en-ciel.jpg", label: "Arc-en-ciel", accent: "Rainbow" },
           ].map((shot, idx) => (
             <motion.div
               key={shot.src}
