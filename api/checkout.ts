@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
-import { products } from '../src/data/products';
+import { products } from './_products';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
