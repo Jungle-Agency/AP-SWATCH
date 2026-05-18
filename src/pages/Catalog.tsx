@@ -19,7 +19,7 @@ export function Catalog() {
            L'Excellence <span className="italic text-neutral-400">Suisse</span>
          </h1>
          <p className="font-light text-neutral-400 max-w-xl mx-auto">
-           Découvrez notre gamme complète de bracelets premium FKM, conçus spécifiquement pour compléter les lignes architecturales de la Royal Oak Concept.
+           Découvrez notre gamme complète de bracelets premium FKM, conçus spécifiquement pour compléter les lignes architecturales de la Royal Pop.
          </p>
       </motion.div>
 

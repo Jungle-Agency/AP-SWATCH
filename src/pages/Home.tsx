@@ -14,7 +14,7 @@ export function Home({ onSelectProduct }: { onSelectProduct: (id: string) => voi
         <div className="absolute inset-0 z-0">
           <img
             src="/watches/royal-oak-arc-en-ciel.jpg"
-            alt="AP x Swatch Royal Oak"
+            alt="AP x Swatch Royal Pop"
             className="w-full h-full object-cover scale-105"
             style={{ objectPosition: '50% 5%' }}
           />
@@ -235,7 +235,7 @@ export function Home({ onSelectProduct }: { onSelectProduct: (id: string) => voi
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-neutral-500 font-light max-w-sm text-sm border-l border-white/10 pl-6"
           >
-            Royal Oak Concept équipée. Chaque bracelet Swap Geneva s'intègre dans la lignée des céramiques signature.
+            Royal Pop équipée. Chaque bracelet Swap Geneva s'intègre dans la lignée des céramiques signature.
           </motion.p>
         </div>
 

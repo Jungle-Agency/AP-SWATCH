@@ -1,6 +1,6 @@
 # Swap Geneva
 
-Boutique en ligne — bracelets premium FKM pour AP × Swatch Royal Oak Concept.
+Boutique en ligne — bracelets premium FKM pour AP × Swatch Royal Pop.
 
 Stack : Vite + React + TypeScript + Tailwind v4. Paiement Stripe Checkout via fonction serverless Vercel.
 
