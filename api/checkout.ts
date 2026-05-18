@@ -76,8 +76,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         {
           shipping_rate_data: {
             type: 'fixed_amount',
-            display_name: 'Union européenne',
-            fixed_amount: { amount: 1500, currency: 'eur' },
+            display_name: 'Union européenne — Offerte',
+            fixed_amount: { amount: 0, currency: 'eur' },
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 3 },
               maximum: { unit: 'business_day', value: 7 },
